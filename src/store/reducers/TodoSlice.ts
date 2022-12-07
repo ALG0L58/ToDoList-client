@@ -25,9 +25,15 @@ export const todoSlise = createSlice({
             state.error = '';
             state.todos = action.payload
         },
-        todosFetchingError(state, action: PayloadAction<string>) {
+        Error(state, action: PayloadAction<string>) {
             state.isLoading = false;
             state.error = action.payload;
+        },
+        addTodo(state, action: PayloadAction<ITodo>) {
+            state.todos.push(action.payload)
+        },
+        remuveTodo(state, action: PayloadAction<number>) {
+            state.todos = state.todos.filter(todo => todo._id !== action.payload)
         }
     }
 })
