@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 interface MyButtonProps {
-    onHandler?: () => void
+    onHandler?: (e:any) => void
     children?: React.ReactNode
 }
 

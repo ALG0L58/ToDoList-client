@@ -1,14 +1,9 @@
 import { FC } from "react";
+import { ITodo } from "../models/ITodo";
 import TodoItem from "./TodoItem";
 
-interface TodoListType {
-    _id: number
-    title: string
-    completed: boolean
-}
-
 interface TodoListProps {
-    todos: Array<TodoListType>
+    todos: ITodo[]
 }
 
 const TodoList: FC<TodoListProps> = ({todos}) => {
