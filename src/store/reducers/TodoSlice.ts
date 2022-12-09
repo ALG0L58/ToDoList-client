@@ -13,7 +13,7 @@ const initialState: TodoState = {
     error: ''
 }
 
-export const todoSlise = createSlice({
+export const todoSlice = createSlice({
     name: 'todo',
     initialState,
     reducers: {
@@ -38,4 +38,4 @@ export const todoSlise = createSlice({
     }
 })
 
-export default todoSlise.reducer;
+export default todoSlice.reducer;

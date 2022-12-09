@@ -15,7 +15,7 @@ const TodoForm = () => {
         const newTodo: ITodo = {
             _id: Date.now(),
             title: title,
-            complited: false
+            completed: false
         }
         dispatch(addTodo(title, newTodo))
         setTitle('')
