@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useAppDispatch } from "../hooks/redux";
-import { remuveTodo } from "../store/reducers/ActionCreators";
+import { changeTodo, removeTodo } from "../store/reducers/ActionCreators";
 import MyButton from "./UI/MyButton/MyButton";
 
 interface TodoItemProps {
@@ -15,20 +15,28 @@ const TodoItem:FC<TodoItemProps> = ({todo}) => {
     const dispatch = useAppDispatch()
 
     const remuve = () => {
-        dispatch(remuveTodo(title, _id))
+        dispatch(removeTodo(title, _id))
     }
 
     let {title, completed, _id} = todo
     return (
         <div>
-            -<span>{title}</span>
+             -<span
+                onClick={() => dispatch(changeTodo(title, !completed, _id))}
+            >{title}</span>
             <MyButton>+</MyButton>
             <div>
-                <MyButton>change</MyButton>
+                <MyButton
+                    
+                >change
+                </MyButton>
+
                 <MyButton>important</MyButton>
+
                 <MyButton
                     onHandler={remuve}
-                >remuve</MyButton>
+                >remove
+                </MyButton>
             </div>
         </div>
     );

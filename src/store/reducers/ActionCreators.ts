@@ -24,10 +24,19 @@ export const addTodo = (title: string, newTodo: ITodo) => async (dispatch: AppDi
     }  
 }
 
-export const remuveTodo = (title: string, _id: number) => async (dispatch: AppDispatch) => {
+export const removeTodo = (title: string, _id: number) => async (dispatch: AppDispatch) => {
     try {
-        dispatch(todoSlice.actions.remuveTodo(_id))
         await $host.post<number>('auth/remuveTodo', {title})
+        dispatch(todoSlice.actions.removeTodo(_id))
+    } catch (e: any) {
+        dispatch(todoSlice.actions.Error(e.message))
+    } 
+}
+
+export const changeTodo = (title: string, completed: boolean, _id: number) => async (dispatch: AppDispatch) => {
+    try {
+        await $host.post<boolean>('auth/changeTodo', {title, completed})
+        dispatch(todoSlice.actions.changeTodo(_id))
     } catch (e: any) {
         dispatch(todoSlice.actions.Error(e.message))
     } 
