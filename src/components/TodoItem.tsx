@@ -1,40 +1,51 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useAppDispatch } from "../hooks/redux";
 import { changeTodo, removeTodo } from "../store/reducers/ActionCreators";
+import { TodoItemProps } from "../types/components/TodoItem";
 import MyButton from "./UI/MyButton/MyButton";
-
-interface TodoItemProps {
-    todo: {
-        _id: number
-        title: string
-        completed?: boolean
-    }
-}
+import MyInput from "./UI/MyInput/MyInput";
 
 const TodoItem:FC<TodoItemProps> = ({todo}) => {
+    const {title, completed, _id} = todo
+    const [visibleInput, setVisibleInput] = useState<boolean>(false)
+    const [changeTitle, setChangeTile] = useState<string>("")
     const dispatch = useAppDispatch()
 
-    const remuve = () => {
-        dispatch(removeTodo(title, _id))
+    const changeCurrentTitle = () => {
+        dispatch(changeTodo(_id, title, "title", changeTitle, false))
+        setChangeTile("")
+        setVisibleInput(false)
     }
 
-    let {title, completed, _id} = todo
+    const currentTitle = <span
+        onClick={() => dispatch(changeTodo(_id, title, "completed", "", !completed))}
+    >{title}</span>
+
+    const changeInput = <MyInput 
+        value={changeTitle}
+        onChange={e => setChangeTile(e.target.value)}
+        onBlur={changeCurrentTitle}
+        placeholder="change todo name"
+    />
+
     return (
         <div>
-             -<span
-                onClick={() => dispatch(changeTodo(title, !completed, _id))}
-            >{title}</span>
+            {visibleInput? 
+                changeInput
+            :
+                <>-{currentTitle}</>
+            }
             <MyButton>+</MyButton>
             <div>
                 <MyButton
-                    
+                    onHandler={() => setVisibleInput(!visibleInput)}
                 >change
                 </MyButton>
 
                 <MyButton>important</MyButton>
 
                 <MyButton
-                    onHandler={remuve}
+                    onHandler={() => dispatch(removeTodo(title, _id))}
                 >remove
                 </MyButton>
             </div>

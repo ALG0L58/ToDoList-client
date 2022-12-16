@@ -1,11 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ITodo } from "../../models/ITodo";
-
-interface TodoState {
-    todos: ITodo[];
-    isLoading: boolean;
-    error: string;
-}
+import { ITodo } from "../../types/ITodo";
+import { changeTodoActionProps, TodoState } from "../../types/reducers/TodoSlice";
 
 const initialState: TodoState = {
     todos: [],
@@ -35,9 +30,29 @@ export const todoSlice = createSlice({
         removeTodo(state, action: PayloadAction<number>) {
             state.todos = state.todos.filter(todo => todo._id !== action.payload)
         },
-        changeTodo(state, action: PayloadAction<number>) {
-            const todo = state.todos.filter(todo => todo._id == action.payload)[0]
-            todo.completed = !todo.completed
+        changeTodo: {
+            reducer: (state, action: PayloadAction<changeTodoActionProps>) => {
+                const todo = state.todos.filter(todo => todo._id == action.payload._id)[0]
+                if(action.payload.select === "completed") {
+                    todo.completed = action.payload.dataChangeTypeBoolean
+                }
+                if (action.payload.select === "title") {
+                    todo.title = action.payload.dataChangeTypeString
+                }
+            },
+            prepare: (
+                    _id: number,
+                    select: string,
+                    dataChangeTypeString: string, 
+                    dataChangeTypeBoolean: boolean
+                ) => {
+                return {payload: {
+                    _id, 
+                    select,
+                    dataChangeTypeString, 
+                    dataChangeTypeBoolean
+                }}
+            }
         }
     }
 })
