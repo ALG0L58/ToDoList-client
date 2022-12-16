@@ -1,10 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ITodo } from "../../models/ITodo";
-
-interface filterTodoState {
-    filteredTodos: ITodo[]
-    select: string
-}
+import { ITodo } from "../../types/ITodo";
+import { filterTodoState } from "../../types/reducers/FilterTodoSlice";
 
 const initialState: filterTodoState = {
     filteredTodos: [],

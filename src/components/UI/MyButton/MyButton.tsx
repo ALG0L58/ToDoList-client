@@ -1,9 +1,5 @@
 import { FC } from "react";
-
-interface MyButtonProps {
-    onHandler?: (e:any) => void
-    children?: React.ReactNode
-}
+import { MyButtonProps } from "../../../types/components/UI/MyButton";
 
 const MyButton:FC<MyButtonProps> = ({children, onHandler}) => {
     return (

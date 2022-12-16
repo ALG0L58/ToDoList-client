@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { ITodo } from "../models/ITodo";
+import { ITodo } from "../types/ITodo";
 
 
 export const useTodos = (todos: ITodo[], query: string) => {

@@ -1,21 +1,15 @@
 import { FC } from "react";
+import { MyInputProps } from "../../../types/components/UI/MyInput";
 
-interface MyInputProps {
-        value: string
-        onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-        placeholder?: string 
-}
-
-const MyInput:FC<MyInputProps> = ({value, onChange, placeholder}) => {
+const MyInput:FC<MyInputProps> = ({value, onChange, onBlur, placeholder}) => {
     return (
         <input 
             value={value}
             onChange={onChange}
+            onBlur={onBlur}
             placeholder={placeholder}
         />
     );
 };
 
 export default MyInput;
-
-// (e: React.ChangeEvent<HTMLInputElement>) => string

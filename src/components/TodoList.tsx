@@ -1,10 +1,6 @@
 import { FC } from "react";
-import { ITodo } from "../models/ITodo";
+import { TodoListProps } from "../types/components/TodoList";
 import TodoItem from "./TodoItem";
-
-interface TodoListProps {
-    todos: ITodo[]
-}
 
 const TodoList: FC<TodoListProps> = ({todos}) => {
     return (

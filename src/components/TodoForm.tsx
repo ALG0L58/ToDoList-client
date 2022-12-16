@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAppDispatch } from "../hooks/redux";
-import { ITodo } from "../models/ITodo";
+import { ITodo } from "../types/ITodo";
 import { addTodo } from '../store/reducers/ActionCreators';
 import MyButton from "./UI/MyButton/MyButton";
 import MyInput from "./UI/MyInput/MyInput";
@@ -30,7 +30,8 @@ const TodoForm = () => {
             />
             <MyButton
                 onHandler={e => addNewTodo(e)}
-            >add todo</MyButton>
+            >add todo
+            </MyButton>
         </form>
     );
 };
