@@ -21,13 +21,13 @@ function App() {
 
   useEffect(() => {
     if(select == "ALL") {
-      dispatch(filterTodoSlice.actions.allTodos(todos))
+      dispatch(filterTodoSlice.actions.getFilteredTodos(todos, "ALL"))
     }
     if(select == "ACTIVE") {
-      dispatch(filterTodoSlice.actions.activeTodos(todos))
+      dispatch(filterTodoSlice.actions.getFilteredTodos(todos, "ACTIVE"))
     }
     if(select == "DONE") {
-      dispatch(filterTodoSlice.actions.doneTodos(todos))
+      dispatch(filterTodoSlice.actions.getFilteredTodos(todos, "DONE"))
     }
   },[todos])
 

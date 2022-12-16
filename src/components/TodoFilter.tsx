@@ -11,24 +11,21 @@ const TodoFilter = () => {
         <div>
             <MyButton
                 onHandler={() => {
-                    dispatch(filterTodoSlice.actions.allTodos(todos))
-                    dispatch(filterTodoSlice.actions.changeSelect('ALL'))
+                    dispatch(filterTodoSlice.actions.getFilteredTodos(todos, "ALL", false))
                 }}
             >All
             </MyButton>
 
             <MyButton
                 onHandler={() => {
-                    dispatch(filterTodoSlice.actions.activeTodos(todos))
-                    dispatch(filterTodoSlice.actions.changeSelect('ACTIVE'))
+                    dispatch(filterTodoSlice.actions.getFilteredTodos(todos, "ACTIVE", false))
                 }}
             >Active
             </MyButton>
             
             <MyButton
                 onHandler={() => {
-                    dispatch(filterTodoSlice.actions.doneTodos(todos))
-                    dispatch(filterTodoSlice.actions.changeSelect('DONE'))
+                    dispatch(filterTodoSlice.actions.getFilteredTodos(todos, "DONE", true))
                 }}
             >Done
             </MyButton>

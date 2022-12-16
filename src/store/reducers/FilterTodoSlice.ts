@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ITodo } from "../../types/ITodo";
-import { filterTodoState } from "../../types/reducers/FilterTodoSlice";
+import { filterTodoState, getFilteredTodosActionProps } from "../../types/reducers/FilterTodoSlice";
 
 const initialState: filterTodoState = {
     filteredTodos: [],
@@ -8,20 +8,36 @@ const initialState: filterTodoState = {
 }
 
 export const filterTodoSlice = createSlice({
-    name: "filterTodo",
+    name: "filterTodo",  
     initialState,
     reducers: {
-        allTodos(state, action: PayloadAction<ITodo[]>) {
-            state.filteredTodos = action.payload
-        },
-        activeTodos(state, action: PayloadAction<ITodo[]>) {
-            state.filteredTodos = action.payload.filter(todo => todo.completed == false)
-        },
-        doneTodos(state, action: PayloadAction<ITodo[]>) {
-            state.filteredTodos = action.payload.filter(todo => todo.completed == true)
-        }, 
-        changeSelect(state, action: PayloadAction<string>) {
-            state.select = action.payload
+        getFilteredTodos: {
+            reducer: (state, action: PayloadAction<getFilteredTodosActionProps>) => {
+                const FilteredTodos = () => {
+                    state.filteredTodos = action.payload.todos.filter(todo => todo.completed == action.payload.dataChange)
+                }
+
+                state.select = action.payload.select
+                if (action.payload.select === "ALL") {
+                    state.filteredTodos = action.payload.todos
+                }
+                if (action.payload.select === "ACTIVE") {
+                    FilteredTodos()
+                }if (action.payload.select === "DONE") {
+                    FilteredTodos()
+                }
+            },
+            prepare: (
+                    todos: ITodo[],
+                    select: string,
+                    dataChange?: boolean
+                ) => {
+                return {payload: {
+                    todos,
+                    select,
+                    dataChange
+                }}
+            },
         }
     }
 })

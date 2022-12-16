@@ -9,7 +9,7 @@ export const fetchTodos = () => async (dispatch: AppDispatch) => {
         dispatch(todoSlice.actions.todosFetching())
         const response = await $host.get<ITodo[]>('auth/allTodos')
         dispatch(todoSlice.actions.todosFetchingSuccess(response.data))
-        dispatch(filterTodoSlice.actions.allTodos(response.data))
+        dispatch(filterTodoSlice.actions.getFilteredTodos(response.data, "ALL"))
     } catch (e: any) {
         dispatch(todoSlice.actions.Error(e.message))
     }   
