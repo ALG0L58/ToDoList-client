@@ -24,10 +24,10 @@ function App() {
       dispatch(filterTodoSlice.actions.getFilteredTodos(todos, "ALL"))
     }
     if(select == "ACTIVE") {
-      dispatch(filterTodoSlice.actions.getFilteredTodos(todos, "ACTIVE"))
+      dispatch(filterTodoSlice.actions.getFilteredTodos(todos, "ACTIVE", false))
     }
     if(select == "DONE") {
-      dispatch(filterTodoSlice.actions.getFilteredTodos(todos, "DONE"))
+      dispatch(filterTodoSlice.actions.getFilteredTodos(todos, "DONE", true))
     }
   },[todos])
 
