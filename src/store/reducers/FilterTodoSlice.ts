@@ -23,7 +23,8 @@ export const filterTodoSlice = createSlice({
                 }
                 if (action.payload.select === "ACTIVE") {
                     FilteredTodos()
-                }if (action.payload.select === "DONE") {
+                }
+                if (action.payload.select === "DONE") {
                     FilteredTodos()
                 }
             },

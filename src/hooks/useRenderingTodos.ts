@@ -3,8 +3,6 @@ import { useDispatch } from "react-redux"
 import { filterTodoSlice } from "../store/reducers/FilterTodoSlice"
 import { ITodo } from "../types/ITodo"
 
-
-
 export const useRenderingTodos = (select: string, todos: ITodo[]) => {
     const dispatch = useDispatch()
 
