@@ -1,12 +1,12 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import TodoFilter from './components/TodoFilter';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import MyInput from './components/UI/MyInput/MyInput';
 import { useAppDispatch, useAppSelector } from './hooks/redux';
+import { useRenderingTodos } from './hooks/useRenderingTodos';
 import { useTodos } from './hooks/useTodos';
 import { fetchTodos } from './store/reducers/ActionCreators';
-import { filterTodoSlice } from './store/reducers/FilterTodoSlice';
 
 function App() {
   const dispatch = useAppDispatch()
@@ -19,17 +19,7 @@ function App() {
       dispatch(fetchTodos())
   },[])
 
-  useEffect(() => {
-    if(select == "ALL") {
-      dispatch(filterTodoSlice.actions.getFilteredTodos(todos, "ALL"))
-    }
-    if(select == "ACTIVE") {
-      dispatch(filterTodoSlice.actions.getFilteredTodos(todos, "ACTIVE", false))
-    }
-    if(select == "DONE") {
-      dispatch(filterTodoSlice.actions.getFilteredTodos(todos, "DONE", true))
-    }
-  },[todos])
+  useRenderingTodos(select, todos) 
 
   return (
     <div>
