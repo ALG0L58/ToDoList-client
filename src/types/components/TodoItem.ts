@@ -3,5 +3,6 @@ export interface TodoItemProps {
         _id: number
         title: string
         completed?: boolean
+        important?: boolean
     }
 }
