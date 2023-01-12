@@ -39,6 +39,9 @@ export const todoSlice = createSlice({
                 if (action.payload.select === "title") {
                     todo.title = action.payload.dataChangeTypeString
                 }
+                if (action.payload.select === "important") {
+                    todo.important = action.payload.dataChangeTypeBoolean
+                }
             },
             prepare: (
                     _id: number,

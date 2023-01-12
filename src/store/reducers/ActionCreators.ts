@@ -17,7 +17,7 @@ export const fetchTodos = () => async (dispatch: AppDispatch) => {
 
 export const addTodo = (title: string, newTodo: ITodo) => async (dispatch: AppDispatch) => {
     try {
-        // await $host.post<ITodo[]>('auth/addTodo', {title})
+        await $host.post<ITodo[]>('auth/addTodo', {title})
         dispatch(todoSlice.actions.addTodo(newTodo))
     } catch (e: any) {
         dispatch(todoSlice.actions.Error(e.message))
@@ -26,7 +26,7 @@ export const addTodo = (title: string, newTodo: ITodo) => async (dispatch: AppDi
 
 export const removeTodo = (title: string, _id: number) => async (dispatch: AppDispatch) => {
     try {
-        // await $host.post<number>('auth/remuveTodo', {title})
+        await $host.post<number>('auth/remuveTodo', {title})
         dispatch(todoSlice.actions.removeTodo(_id))
     } catch (e: any) {
         dispatch(todoSlice.actions.Error(e.message))
@@ -47,9 +47,12 @@ export const changeTodo = (
     if(select === "completed") {
         dataChange = dataChangeTypeBoolean
     }
+    if(select === "important") {
+        dataChange = dataChangeTypeBoolean
+    }
     
     try {
-        // await $host.post<boolean>('auth/changeTodo', {title, dataChange, select})
+        await $host.post<boolean>('auth/changeTodo', {title, dataChange, select})
         dispatch(todoSlice.actions.changeTodo(_id, select, dataChangeTypeString, dataChangeTypeBoolean))
     } catch (e: any) {
         dispatch(todoSlice.actions.Error(e.message))
