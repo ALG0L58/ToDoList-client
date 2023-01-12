@@ -1,0 +1,26 @@
+.my-input-search-query,
+.my-input-add-todo,
+.my-input-change-title {
+  max-width: 165px;
+  height: 30px;
+  font-size: 25px;
+  color: #14FE00;
+  background: transparent;
+}
+.my-input-search-query::-webkit-input-placeholder, .my-input-add-todo::-webkit-input-placeholder, .my-input-change-title::-webkit-input-placeholder {
+  color: #a8a6a6;
+}
+.my-input-search-query::-moz-placeholder, .my-input-add-todo::-moz-placeholder, .my-input-change-title::-moz-placeholder {
+  color: #a8a6a6;
+}
+.my-input-search-query:-ms-input-placeholder, .my-input-add-todo:-ms-input-placeholder, .my-input-change-title:-ms-input-placeholder {
+  color: #a8a6a6;
+}
+.my-input-search-query::-ms-input-placeholder, .my-input-add-todo::-ms-input-placeholder, .my-input-change-title::-ms-input-placeholder {
+  color: #a8a6a6;
+}
+.my-input-search-query::placeholder,
+.my-input-add-todo::placeholder,
+.my-input-change-title::placeholder {
+  color: #a8a6a6;
+}

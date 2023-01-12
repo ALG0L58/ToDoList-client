@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import '../resetStyle.scss';
+@import '../mixinsAndTemplates.scss';
+@import '../media.scss';
+
+
+#root {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    font-family: "Roboto";
+    font-size: 40px;
+    color: #14FE00;
+    background: url(../images/Background.png) center;
+}   
+
+.to-do-list {
+    max-width: 50%;
+    margin: 40px auto 0;
+
+    .to-do-list__content {
+        @extend %borderAndBackground;
+        @extend %boxShadow;
+
+        .to-do-list__search-and-add-todo {
+            @include linerGradientAndMargin(20px, 10px);
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            min-height: 50px;
+            height: 7vh;
+
+            .to-do-list__search-query {
+                display: inherit;
+                position: relative;
+
+                .my-input-search-query__lable {
+                    @include backgroundImageWithProps(30px, '../images/MagnifyingGlass.svg', 30px);
+
+                    position: absolute;
+                    top: 0%;
+                    right: -30px;
+                }
+            }
+        }
+
+        .vertical-line {
+            width: 97%;
+            height: 1px;
+            margin-left: 16px;
+            margin-bottom: 7px;
+            background-color: rgb(224, 216, 216, 0.5);
+        }
+    }
+}
+

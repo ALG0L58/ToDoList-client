@@ -1,0 +1,32 @@
+.to-do-list__filter {
+  background-color: rgba(13, 13, 13, 0.8);
+  border: 3px solid #8e8e8e;
+}
+
+.to-do-list__filter {
+  -webkit-box-shadow: 10px 10px 20px black;
+          box-shadow: 10px 10px 20px black;
+}
+
+.to-do-list__filter {
+  margin-top: 20px;
+}
+
+.filter__content {
+  margin: 5px 5px;
+  background: -webkit-gradient(linear, left top, right top, color-stop(-40%, #6d6d6d), to(#424242));
+  background: linear-gradient(90deg, #6d6d6d -40%, #424242);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.filter__button {
+  font-size: 30px;
+  background-color: transparent;
+  color: #9f9f9f;
+}
+.filter__button_active {
+  color: #FAC712;
+}

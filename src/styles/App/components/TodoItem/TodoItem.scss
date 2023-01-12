@@ -1,0 +1,61 @@
+@import '../../../mixinsAndTemplates.scss';
+
+.to-do-list__task {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-left: 10px;
+
+    .my-input-change-title {
+        max-width: 214px;
+    }
+}
+
+.task {
+
+    &__open-menu-button_visible {
+        @include backgroundImageWithProps(27px, '../../../images/OpenMenu.svg', 36px);
+
+        margin-left: 15px;
+    }
+
+    &__open-menu-button_invisible{
+        display: none;
+    }
+
+    &__menu_invisible {
+        display: none;
+    }
+
+    &__menu_visible {
+        display: flex;
+        justify-content: space-between;
+        width: 140px;
+        margin-left: 15px;
+    }
+
+    &__change-button {
+        @include backgroundImageWithProps(32px, '../../../images/ChangeTitle.svg', 31px);
+    }
+
+    &__important-button {
+        @include backgroundImageWithProps(32px, '../../../images/ImportantTitle.svg', 36px);
+    }
+
+    &__remove-button {
+        @include backgroundImageWithProps(32px, '../../../images/Remove.svg', 33px);
+    }
+
+    &__title {
+        max-width: 85%;
+        word-break: break-all;
+    }
+
+    &__title_completed {
+        color: #086500;
+    }
+
+    &__title_important {
+        text-shadow: 0 0 6px #ecb900;
+    }
+}

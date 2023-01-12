@@ -1,0 +1,31 @@
+@import '../../mixinsAndTemplates.scss';
+// mixinsAndTemplates.Scss
+
+.to-do-list__filter {
+    @extend %borderAndBackground;
+    @extend %boxShadow;
+
+    margin-top: 20px;
+
+
+}
+
+.filter {
+    &__content {
+        @include linerGradientAndMargin(5px, 5px);
+
+        display: flex;
+        justify-content: space-around;
+        
+    }
+
+    &__button {
+        font-size: 30px;
+        background-color: transparent;
+        color: #9f9f9f;
+    }
+
+    &__button_active {
+        color: #FAC712;
+    }
+}

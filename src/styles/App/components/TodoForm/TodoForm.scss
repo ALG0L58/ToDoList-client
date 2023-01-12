@@ -1,0 +1,14 @@
+@import '../../../mixinsAndTemplates.scss';
+
+.to-do-list__form {
+    display: inherit;
+    align-items: center;
+
+    .my-input-add-todo {
+        max-width: 105px;
+    }
+
+    .to-do-list__button-form {
+        @include backgroundImageWithProps(33px, '../../../images/AddTodo.svg', 40px);
+    }
+}

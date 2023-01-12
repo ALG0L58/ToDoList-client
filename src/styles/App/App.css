@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap"); /*Reset*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 10px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*----------------------------------------------------------*/
+.to-do-list .to-do-list__content {
+  background-color: rgba(13, 13, 13, 0.8);
+  border: 3px solid #8e8e8e;
+}
+
+.to-do-list .to-do-list__content {
+  -webkit-box-shadow: 10px 10px 20px black;
+          box-shadow: 10px 10px 20px black;
+}
+
+@media (max-width: 1025px) {
+  .to-do-list {
+    min-width: 60%;
+  }
+  .to-do-list .to-do-list__content .vertical-line {
+    width: 96%;
+  }
+}
+@media (max-width: 769px) {
+  #root {
+    font-size: 30px;
+  }
+  .to-do-list {
+    min-width: 70%;
+  }
+  .to-do-list .to-do-list__content .vertical-line {
+    width: 95%;
+  }
+}
+@media (max-width: 430px) {
+  #root .to-do-list {
+    min-width: 95%;
+    height: 97%;
+    margin: 10px auto 0;
+  }
+  #root .to-do-list .to-do-list__content {
+    min-height: 88%;
+  }
+  #root .to-do-list .to-do-list__content .my-input-search-query,
+#root .to-do-list .to-do-list__content .my-input-add-todo,
+#root .to-do-list .to-do-list__content .my-input-change-title {
+    max-width: 170px;
+    font-size: 20px;
+  }
+  #root .to-do-list .to-do-list__content .my-input-search-query {
+    max-width: 133px;
+  }
+  #root .to-do-list .to-do-list__content .my-input-add-todo {
+    max-width: 85px;
+  }
+  #root .to-do-list .to-do-list__content .vertical-line {
+    height: 2px;
+  }
+}
+@media (max-width: 376px) {
+  .to-do-list {
+    font-size: 27px;
+  }
+  .to-do-list .task__title {
+    max-width: 80%;
+  }
+}
+@media (max-width: 321px) {
+  #root .to-do-list {
+    font-size: 25px;
+  }
+  #root .to-do-list .to-do-list__content .to-do-list__search-and-add-todo {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  #root .to-do-list .to-do-list__content .my-input-search-query,
+#root .to-do-list .to-do-list__content .my-input-add-todo,
+#root .to-do-list .to-do-list__content .my-input-change-title {
+    max-width: 168px;
+    font-size: 20px;
+  }
+  #root .to-do-list .to-do-list__content .my-input-search-query {
+    max-width: 132px;
+  }
+  #root .to-do-list .to-do-list__content .my-input-add-todo {
+    max-width: 81px;
+  }
+}
+#root {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Roboto";
+  font-size: 40px;
+  color: #14FE00;
+  background: url(../images/Background.png) center;
+}
+
+.to-do-list {
+  max-width: 50%;
+  margin: 40px auto 0;
+}
+.to-do-list .to-do-list__content .to-do-list__search-and-add-todo {
+  margin: 20px 10px;
+  background: -webkit-gradient(linear, left top, right top, color-stop(-40%, #6d6d6d), to(#424242));
+  background: linear-gradient(90deg, #6d6d6d -40%, #424242);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 50px;
+  height: 7vh;
+}
+.to-do-list .to-do-list__content .to-do-list__search-and-add-todo .to-do-list__search-query {
+  display: inherit;
+  position: relative;
+}
+.to-do-list .to-do-list__content .to-do-list__search-and-add-todo .to-do-list__search-query .my-input-search-query__lable {
+  width: 30px;
+  height: 30px;
+  background-image: url("../images/MagnifyingGlass.svg");
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  position: absolute;
+  top: 0%;
+  right: -30px;
+}
+.to-do-list .to-do-list__content .vertical-line {
+  width: 97%;
+  height: 1px;
+  margin-left: 16px;
+  margin-bottom: 7px;
+  background-color: rgba(224, 216, 216, 0.5);
+}

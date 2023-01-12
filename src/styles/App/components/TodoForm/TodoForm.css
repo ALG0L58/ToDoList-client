@@ -1,0 +1,18 @@
+.to-do-list__form {
+  display: inherit;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.to-do-list__form .my-input-add-todo {
+  max-width: 105px;
+}
+.to-do-list__form .to-do-list__button-form {
+  width: 33px;
+  height: 33px;
+  background-image: url("../../../images/AddTodo.svg");
+  background-size: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}

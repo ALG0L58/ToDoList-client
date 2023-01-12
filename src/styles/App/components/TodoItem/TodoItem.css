@@ -1,0 +1,77 @@
+.to-do-list__task {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 30px;
+  margin-left: 10px;
+}
+.to-do-list__task .my-input-change-title {
+  max-width: 214px;
+}
+
+.task__open-menu-button_visible {
+  width: 27px;
+  height: 27px;
+  background-image: url("../../../images/OpenMenu.svg");
+  background-size: 36px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  margin-left: 15px;
+}
+.task__open-menu-button_invisible {
+  display: none;
+}
+.task__menu_invisible {
+  display: none;
+}
+.task__menu_visible {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 140px;
+  margin-left: 15px;
+}
+.task__change-button {
+  width: 32px;
+  height: 32px;
+  background-image: url("../../../images/ChangeTitle.svg");
+  background-size: 31px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+.task__important-button {
+  width: 32px;
+  height: 32px;
+  background-image: url("../../../images/ImportantTitle.svg");
+  background-size: 36px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+.task__remove-button {
+  width: 32px;
+  height: 32px;
+  background-image: url("../../../images/Remove.svg");
+  background-size: 33px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+.task__title {
+  max-width: 85%;
+  word-break: break-all;
+}
+.task__title_completed {
+  color: #086500;
+}
+.task__title_important {
+  text-shadow: 0 0 6px #ecb900;
+}

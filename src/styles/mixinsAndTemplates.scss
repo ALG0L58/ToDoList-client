@@ -1,0 +1,23 @@
+@mixin linerGradientAndMargin($topAndBottom, $rightAndLeft) {
+    margin: $topAndBottom $rightAndLeft;
+    background: linear-gradient(90deg, #6d6d6d -40%, #424242 );
+}
+
+@mixin backgroundImageWithProps ($widthAndHeight, $imageUrl, $imageSize) {
+    width: $widthAndHeight;
+    height: $widthAndHeight;
+    background-image: url($imageUrl);
+    background-size: $imageSize;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+
+%borderAndBackground {
+    background-color: rgb(13, 13, 13, 0.8);
+    border: 3px solid #8e8e8e;
+}
+
+%boxShadow {
+    box-shadow: 10px 10px 20px black;
+}

@@ -1,0 +1,99 @@
+@media (max-width: 1025px) {
+    .to-do-list {
+        min-width: 60%;
+
+        .to-do-list__content {
+            .vertical-line{
+                width: 96%;
+            }
+        }
+    }
+}
+
+@media (max-width: 769px) {
+    #root {
+        font-size: 30px;
+    }
+
+    .to-do-list {
+        min-width: 70%;
+
+        .to-do-list__content {
+            .vertical-line{
+                width: 95%;
+            }
+        }
+    }
+}
+
+@media (max-width: 430px) {
+    #root {
+        .to-do-list {
+            min-width: 95%;
+            height: 97%;
+            margin: 10px auto 0;
+    
+            .to-do-list__content {
+                min-height: 88%;
+    
+                .my-input-search-query,
+                .my-input-add-todo,
+                .my-input-change-title {
+                    max-width: 170px;
+                    font-size: 20px;
+                }
+    
+                .my-input-search-query {
+                    max-width: 133px;
+                }
+    
+                .my-input-add-todo {
+                    max-width: 85px;
+                }
+    
+                .vertical-line{
+                    height: 2px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 376px) {
+    .to-do-list {
+        font-size: 27px;
+
+        .task__title {
+            max-width: 80%;
+        }
+    }
+}
+
+@media (max-width: 321px) {
+    #root {
+        .to-do-list {
+            font-size: 25px;
+    
+            .to-do-list__content {
+                .to-do-list__search-and-add-todo {
+                    justify-content: space-between;
+                }
+    
+                .my-input-search-query,
+                .my-input-add-todo,
+                .my-input-change-title {
+                    max-width: 168px;
+                    font-size: 20px;
+                }
+    
+                .my-input-search-query {
+                    max-width: 132px;
+                }
+    
+                .my-input-add-todo {
+                    max-width: 81px;
+                }
+            }
+        }
+    }
+}

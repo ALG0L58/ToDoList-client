@@ -1,0 +1,14 @@
+.my-input-search-query,
+.my-input-add-todo,
+.my-input-change-title
+ {
+    max-width: 165px;
+    height: 30px;
+    font-size: 25px;
+    color: #14FE00;
+    background: transparent;
+    
+    &::placeholder {
+        color: #a8a6a6;
+    }
+}
