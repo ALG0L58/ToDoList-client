@@ -7,6 +7,9 @@ import { useAppDispatch, useAppSelector } from './hooks/redux';
 import { useRenderingTodos } from './hooks/useRenderingTodos';
 import { useTodos } from './hooks/useTodos';
 import { fetchTodos } from './store/reducers/ActionCreators';
+import './styles/App/components/UI/MyInput//MyInput.css'
+import './styles/App/App.css'
+
 
 function App() {
   const dispatch = useAppDispatch()
@@ -22,16 +25,26 @@ function App() {
   useRenderingTodos(select, todos) 
 
   return (
-    <div>
-      {isLoading && <h1>Loading...</h1>}
-      {error && <h1>{error}</h1>}
-      <MyInput 
-        value={searchQuery}
-        onChange={e => setsearchQuery(e.target.value)}
-        placeholder='type to search'
-      />
-      <TodoForm />
-      <TodoList todos={selectedTodos} />
+    <div className='to-do-list'>
+      <div className='to-do-list__content'>
+        {isLoading && <h1>Loading...</h1>}
+        {error && <h1>{error}</h1>}
+        <div className='to-do-list__search-and-add-todo'>
+          <div className='to-do-list__search-query'>
+            <MyInput 
+              value={searchQuery}
+              onChange={e => setsearchQuery(e.target.value)}
+              placeholder='Type to search'
+              id='searchInput'
+              className='my-input-search-query'
+            />
+            <label htmlFor='searchInput' className='my-input-search-query__lable'></label>
+          </div>
+          <TodoForm />
+        </div>
+        <hr className='vertical-line' />
+        <TodoList todos={selectedTodos} />
+      </div>
       <TodoFilter />
     </div>
   );
