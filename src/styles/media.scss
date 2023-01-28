@@ -13,14 +13,14 @@
 @media (max-width: 769px) {
     #root {
         font-size: 30px;
-    }
 
-    .to-do-list {
-        min-width: 70%;
-
-        .to-do-list__content {
-            .vertical-line{
-                width: 95%;
+        .to-do-list {
+            min-width: 70%;
+    
+            .to-do-list__content {
+                .vertical-line{
+                    width: 95%;
+                }
             }
         }
     }
@@ -60,11 +60,21 @@
 }
 
 @media (max-width: 376px) {
-    .to-do-list {
-        font-size: 27px;
-
-        .task__title {
-            max-width: 80%;
+    #root {
+        .to-do-list {
+            font-size: 27px;
+    
+            .to-do-list__content {
+    
+                .vertical-line{
+                    width: 94%;
+                }
+    
+                .task__title {
+                    max-width: 80%;
+                }
+            }
+            
         }
     }
 }
@@ -77,6 +87,10 @@
             .to-do-list__content {
                 .to-do-list__search-and-add-todo {
                     justify-content: space-between;
+                }
+
+                .vertical-line{
+                    width: 93%;
                 }
     
                 .my-input-search-query,
