@@ -32,7 +32,7 @@ export const todoSlice = createSlice({
         },
         changeTodo: {
             reducer: (state, action: PayloadAction<changeTodoActionProps>) => {
-                const todo = state.todos.filter(todo => todo._id == action.payload._id)[0]
+                const todo = state.todos.filter(todo => todo._id === action.payload._id)[0]
                 if(action.payload.select === "completed") {
                     todo.completed = action.payload.dataChangeTypeBoolean
                 }

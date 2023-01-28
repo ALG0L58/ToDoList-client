@@ -14,7 +14,7 @@ export const filterTodoSlice = createSlice({
         getFilteredTodos: {
             reducer: (state, action: PayloadAction<getFilteredTodosActionProps>) => {
                 const FilteredTodos = () => {
-                    state.filteredTodos = action.payload.todos.filter(todo => todo.completed == action.payload.dataChange)
+                    state.filteredTodos = action.payload.todos.filter(todo => todo.completed === action.payload.dataChange)
                 }
 
                 state.select = action.payload.select

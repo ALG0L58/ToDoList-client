@@ -7,13 +7,13 @@ export const useRenderingTodos = (select: string, todos: ITodo[]) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if(select == "ALL") {
+        if(select === "ALL") {
           dispatch(filterTodoSlice.actions.getFilteredTodos(todos, "ALL"))
         }
-        if(select == "ACTIVE") {
+        if(select === "ACTIVE") {
           dispatch(filterTodoSlice.actions.getFilteredTodos(todos, "ACTIVE", false))
         }
-        if(select == "DONE") {
+        if(select === "DONE") {
           dispatch(filterTodoSlice.actions.getFilteredTodos(todos, "DONE", true))
         }
     },[todos])

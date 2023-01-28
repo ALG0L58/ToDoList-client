@@ -19,7 +19,7 @@ function App() {
   const selectedTodos = useTodos(filteredTodos, searchQuery)
 
   useEffect(() => {
-      dispatch(fetchTodos())
+    dispatch(fetchTodos())
   },[])
 
   useRenderingTodos(select, todos) 
