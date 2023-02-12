@@ -5,7 +5,8 @@ import { changeTodoActionProps, TodoState } from "../../types/reducers/TodoSlice
 const initialState: TodoState = {
     todos: [],
     isLoading: false,
-    error: ''
+    error: '',
+    version: 0
 }
 
 export const todoSlice = createSlice({
@@ -26,9 +27,11 @@ export const todoSlice = createSlice({
         },
         addTodo(state, action: PayloadAction<ITodo>) {
             state.todos.push(action.payload)
+            state.version += 1
         },
-        removeTodo(state, action: PayloadAction<number>) {
+        removeTodo(state, action: PayloadAction<string>) {
             state.todos = state.todos.filter(todo => todo._id !== action.payload)
+            state.version += 1
         },
         changeTodo: {
             reducer: (state, action: PayloadAction<changeTodoActionProps>) => {
@@ -44,7 +47,7 @@ export const todoSlice = createSlice({
                 }
             },
             prepare: (
-                    _id: number,
+                    _id: string,
                     select: string,
                     dataChangeTypeString: string, 
                     dataChangeTypeBoolean: boolean
