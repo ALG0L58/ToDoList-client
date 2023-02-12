@@ -100,6 +100,9 @@ h1, h2, h3, h4, h5, h6 {
   #root .to-do-list .to-do-list__content .vertical-line {
     width: 95%;
   }
+  #root .registration-or-login-form {
+    width: 60%;
+  }
 }
 @media (max-width: 430px) {
   #root .to-do-list {
@@ -125,6 +128,10 @@ h1, h2, h3, h4, h5, h6 {
   #root .to-do-list .to-do-list__content .vertical-line {
     height: 2px;
   }
+  #root .registration-or-login-form {
+    width: 90%;
+    margin: 40px auto;
+  }
 }
 @media (max-width: 376px) {
   #root .to-do-list {
@@ -135,6 +142,10 @@ h1, h2, h3, h4, h5, h6 {
   }
   #root .to-do-list .to-do-list__content .task__title {
     max-width: 80%;
+  }
+  #root .registration-or-login-form {
+    width: 90%;
+    margin: 40px auto;
   }
 }
 @media (max-width: 321px) {
@@ -161,6 +172,13 @@ h1, h2, h3, h4, h5, h6 {
   #root .to-do-list .to-do-list__content .my-input-add-todo {
     max-width: 81px;
   }
+  #root .registration-or-login-form {
+    width: 98%;
+    margin: 40px auto;
+  }
+  #root .registration-or-login-form__avatar {
+    max-width: 250px;
+  }
 }
 #root {
   position: absolute;
@@ -174,7 +192,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .to-do-list {
   max-width: 50%;
-  margin: 40px auto 0;
+  margin: 80px auto 0;
 }
 .to-do-list .to-do-list__content .to-do-list__search-and-add-todo {
   margin: 20px 10px;
@@ -213,4 +231,61 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 16px;
   margin-bottom: 7px;
   background-color: rgba(224, 216, 216, 0.5);
+}
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(90deg) scale(1.2);
+            transform: rotate(90deg) scale(1.2);
+  }
+  50% {
+    -webkit-transform: rotate(180deg) scale(1.3);
+            transform: rotate(180deg) scale(1.3);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) scale(1);
+            transform: rotate(360deg) scale(1);
+  }
+}
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(90deg) scale(1.2);
+            transform: rotate(90deg) scale(1.2);
+  }
+  50% {
+    -webkit-transform: rotate(180deg) scale(1.3);
+            transform: rotate(180deg) scale(1.3);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) scale(1);
+            transform: rotate(360deg) scale(1);
+  }
+}
+.to-do-list .to-do-list__content .loading {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 10px auto;
+  -webkit-animation: rotate 6s infinite linear;
+          animation: rotate 6s infinite linear;
+}
+.to-do-list .to-do-list__content .loading img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.to-do-list .to-do-list__content .loading__text {
+  width: 174px;
+  margin: 20px auto;
 }
