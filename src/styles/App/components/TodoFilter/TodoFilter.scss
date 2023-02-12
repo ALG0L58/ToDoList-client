@@ -1,13 +1,10 @@
-@import '../../mixinsAndTemplates.scss';
-// mixinsAndTemplates.Scss
+@import '../../../mixinsAndTemplates.scss';
 
 .to-do-list__filter {
     @extend %borderAndBackground;
     @extend %boxShadow;
 
     margin-top: 20px;
-
-
 }
 
 .filter {
@@ -16,16 +13,17 @@
 
         display: flex;
         justify-content: space-around;
-        
     }
 
     &__button {
         font-size: 30px;
         background-color: transparent;
         color: #9f9f9f;
+        transition: color 0.5s linear;
     }
 
     &__button_active {
         color: #FAC712;
+        transition: color 0.5s linear;
     }
 }

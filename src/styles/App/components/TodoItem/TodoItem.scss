@@ -1,5 +1,7 @@
 @import '../../../mixinsAndTemplates.scss';
 
+
+
 .to-do-list__task {
     display: flex;
     align-items: center;
@@ -12,15 +14,48 @@
 }
 
 .task {
+    //button visible menu
+    @keyframes visibleDisabled {
+        from {
+            opacity: 1;
+            transform: rotate(0deg);
+            width: 27px;
+            height: 27px;
+        }
+        to {
+            opacity: 0;
+            transform: rotate(360deg);
+            width: 0px;
+            height: 0px;
+        }
+    }
 
+    @keyframes visibleActive {
+        from {
+            opacity: 0;
+            transform: rotate(360deg);
+            width: 0px;
+            height: 0px;
+        }
+        to {
+            opacity: 1;
+            transform: rotate(0deg);
+            width: 27px;
+            height: 27px;
+        }
+    }
+    
     &__open-menu-button_visible {
         @include backgroundImageWithProps(27px, '../../../images/OpenMenu.svg', 36px);
-
         margin-left: 15px;
+        animation: visibleActive 1s linear;
     }
 
     &__open-menu-button_invisible{
-        display: none;
+        @include backgroundImageWithProps(27px, '../../../images/OpenMenu.svg', 36px);
+        animation: visibleDisabled 1s linear forwards;
+        visibility: hidden;
+        transition: visibility 1s;
     }
 
     &__menu_invisible {
@@ -49,13 +84,17 @@
     &__title {
         max-width: 85%;
         word-break: break-all;
+        color: #14FE00;
+        transition: all 0.5s linear;
     }
 
     &__title_completed {
         color: #086500;
+        transition: color 0.5s linear;
     }
 
     &__title_important {
         text-shadow: 0 0 6px #ecb900;
+        transition: text-shadow 0.5s linear;
     }
 }

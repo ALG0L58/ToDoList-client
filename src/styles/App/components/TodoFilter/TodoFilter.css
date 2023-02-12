@@ -26,7 +26,11 @@
   font-size: 30px;
   background-color: transparent;
   color: #9f9f9f;
+  -webkit-transition: color 0.5s linear;
+  transition: color 0.5s linear;
 }
 .filter__button_active {
   color: #FAC712;
+  -webkit-transition: color 0.5s linear;
+  transition: color 0.5s linear;
 }

@@ -12,6 +12,71 @@
   max-width: 214px;
 }
 
+@-webkit-keyframes visibleDisabled {
+  from {
+    opacity: 1;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    width: 27px;
+    height: 27px;
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    width: 0px;
+    height: 0px;
+  }
+}
+
+@keyframes visibleDisabled {
+  from {
+    opacity: 1;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    width: 27px;
+    height: 27px;
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    width: 0px;
+    height: 0px;
+  }
+}
+@-webkit-keyframes visibleActive {
+  from {
+    opacity: 0;
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    width: 0px;
+    height: 0px;
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    width: 27px;
+    height: 27px;
+  }
+}
+@keyframes visibleActive {
+  from {
+    opacity: 0;
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    width: 0px;
+    height: 0px;
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    width: 27px;
+    height: 27px;
+  }
+}
 .task__open-menu-button_visible {
   width: 27px;
   height: 27px;
@@ -21,9 +86,22 @@
   background-repeat: no-repeat;
   background-color: transparent;
   margin-left: 15px;
+  -webkit-animation: visibleActive 1s linear;
+          animation: visibleActive 1s linear;
 }
 .task__open-menu-button_invisible {
-  display: none;
+  width: 27px;
+  height: 27px;
+  background-image: url("../../../images/OpenMenu.svg");
+  background-size: 36px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  -webkit-animation: visibleDisabled 1s linear forwards;
+          animation: visibleDisabled 1s linear forwards;
+  visibility: hidden;
+  -webkit-transition: visibility 1s;
+  transition: visibility 1s;
 }
 .task__menu_invisible {
   display: none;
@@ -68,10 +146,17 @@
 .task__title {
   max-width: 85%;
   word-break: break-all;
+  color: #14FE00;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
 }
 .task__title_completed {
   color: #086500;
+  -webkit-transition: color 0.5s linear;
+  transition: color 0.5s linear;
 }
 .task__title_important {
   text-shadow: 0 0 6px #ecb900;
+  -webkit-transition: text-shadow 0.5s linear;
+  transition: text-shadow 0.5s linear;
 }
