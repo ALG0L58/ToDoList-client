@@ -1,6 +1,6 @@
 export interface TodoItemProps {
     todo: {
-        _id: number
+        _id: string
         title: string
         completed?: boolean
         important?: boolean
