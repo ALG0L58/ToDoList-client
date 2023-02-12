@@ -1,10 +1,12 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit'
 import todoReducer from './reducers/TodoSlice'
 import filterTodoReducer from './reducers/FilterTodoSlice'
+import userReducer from './reducers/UserSlice'
 
 const rootReducer = combineReducers({
     todoReducer,
-    filterTodoReducer
+    filterTodoReducer,
+    userReducer
 })
 
 export const setupStore = () => {
