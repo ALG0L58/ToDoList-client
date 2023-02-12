@@ -23,6 +23,10 @@
                 }
             }
         }
+
+        .registration-or-login-form {
+            width: 60%;
+        }
     }
 }
 
@@ -56,6 +60,11 @@
                 }
             }
         }
+
+        .registration-or-login-form {
+            width: 90%;
+            margin: 40px auto;
+        }
     }
 }
 
@@ -75,6 +84,11 @@
                 }
             }
             
+        }
+
+        .registration-or-login-form {
+            width: 90%;
+            margin: 40px auto;
         }
     }
 }
@@ -107,6 +121,15 @@
                 .my-input-add-todo {
                     max-width: 81px;
                 }
+            }
+        }
+
+        .registration-or-login-form {
+            width: 98%;
+            margin: 40px auto;
+
+            &__avatar {
+                max-width: 250px;
             }
         }
     }
