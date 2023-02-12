@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { useAppDispatch } from "../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { changeTodo, removeTodo } from "../store/reducers/ActionCreators";
 import { TodoItemProps } from "../types/components/TodoItem";
 import MyButton from "./UI/MyButton/MyButton";
@@ -8,6 +8,7 @@ import '../styles/App/components/TodoItem/TodoItem.css'
 
 const TodoItem:FC<TodoItemProps> = ({todo}) => {
     const {title, completed, important, _id} = todo
+    const {currentUserId} = useAppSelector(state => state.userReducer)
     const [visibleMenu, setVisibleMenu] = useState<boolean>(false)
     const [visibleInput, setVisibleInput] = useState<boolean>(false)
     const [changeTitle, setChangeTile] = useState<string>("")
@@ -22,42 +23,55 @@ const TodoItem:FC<TodoItemProps> = ({todo}) => {
         className += " task__title_important"
     }
 
-    const changeCurrentTitle = () => {
-        dispatch(changeTodo(_id, title, "title", changeTitle, false))
-        setChangeTile("")
-        setVisibleInput(false)
-        setVisibleMenu(!visibleMenu)
+    const preChangeTodo = (select: string, dataChangeTypeString: string, dataChangeTypeBoolean: boolean) => {
+        dispatch(changeTodo(currentUserId, _id, select, dataChangeTypeString, dataChangeTypeBoolean))
+    }
+
+    const changeCurrentTitle = (e:React.KeyboardEvent<HTMLInputElement>): void => {
+        const keyName = e.key
+
+        if (keyName === 'Enter') {
+            preChangeTodo("title", changeTitle, false)
+            setChangeTile("")
+            setVisibleInput(false)
+            setVisibleMenu(!visibleMenu)
+        }
     }
 
     const currentTitle = <span
-        onClick={() => dispatch(changeTodo(_id, title, "completed", "", !completed))}
+        onClick={() => preChangeTodo("completed", '', !completed)}
         className={className}
     >{title}</span>
 
     const changeInput = <MyInput 
         value={changeTitle}
         onChange={e => setChangeTile(e.target.value)}
-        onBlur={changeCurrentTitle}
+        onKeyUp={e => changeCurrentTitle(e)}
         placeholder="Change todo name"
         className="my-input-change-title"
     />
 
     return (
         <div className="to-do-list__task task">
-            {visibleInput? 
+            {visibleInput
+            ? 
                 changeInput
             :
                 <>-{currentTitle}</>
             }
             <MyButton 
-                className={!visibleMenu? 
-                    'task__open-menu-button_visible' : 
-                    'task__open-menu-button_invisible'}
+                className={!visibleMenu
+                    ? 
+                        'task__open-menu-button_visible' 
+                    : 
+                        'task__open-menu-button_invisible'}
                 onHandler={() => setVisibleMenu(!visibleMenu)}
             />
-            <div className={visibleMenu? 
-                'task__menu_visible' : 
-                'task__menu_invisible'}>
+            <div className={visibleMenu
+                ? 
+                    'task__menu_visible' 
+                : 
+                    'task__menu_invisible'}>
 
                 <MyButton
                     onHandler={() => setVisibleInput(!visibleInput)}
@@ -67,7 +81,7 @@ const TodoItem:FC<TodoItemProps> = ({todo}) => {
                 <MyButton 
                     onHandler={() => 
                         {
-                            dispatch(changeTodo(_id, title, "important", "", !important))
+                            preChangeTodo("important", '', !important)
                             setVisibleMenu(!visibleMenu)
                         }
                     }
@@ -75,7 +89,7 @@ const TodoItem:FC<TodoItemProps> = ({todo}) => {
                 />
 
                 <MyButton
-                    onHandler={() => dispatch(removeTodo(title, _id))}
+                    onHandler={() => dispatch(removeTodo(currentUserId, _id))}
                     className='task__remove-button'
                 />
             </div>
