@@ -1,10 +1,11 @@
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
+import {FC} from "react";
 import { filterTodoSlice } from "../store/reducers/FilterTodoSlice";
 import MyButton from "./UI/MyButton/MyButton";
 import '../styles/App/components/TodoFilter/TodoFilter.css'
 
 
-const TodoFilter = () => {
+const TodoFilter:FC = () => {
     const dispatch = useAppDispatch()
     const {todos} = useAppSelector(state => state.todoReducer)
     const {select} = useAppSelector(state => state.filterTodoReducer)

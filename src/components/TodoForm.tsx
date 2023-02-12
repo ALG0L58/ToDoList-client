@@ -1,26 +1,31 @@
-import { useState } from 'react';
-import { useAppDispatch } from "../hooks/redux";
+import { FC, useState } from 'react';
+import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { ITodo } from "../types/ITodo";
 import { addTodo } from '../store/reducers/ActionCreators';
 import MyButton from "./UI/MyButton/MyButton";
 import MyInput from "./UI/MyInput/MyInput";
 import '../styles/App/components/TodoForm/TodoForm.css'
 
-const TodoForm = () => {
+const TodoForm:FC = () => {
     const [title, setTitle] = useState<string>('')
+    const {currentUserId} = useAppSelector(state => state.userReducer)
     const dispatch = useAppDispatch()
 
     const addNewTodo = (e: React.MouseEvent<HTMLButtonElement>): void => {
         e.preventDefault()
-        
-        const newTodo: ITodo = {
-            _id: Date.now(),
-            title: title,
-            completed: false,
-            important: false,
+
+        if (title.length < 5) {
+            console.log('title length < 5');
+        } else {
+            const newTodo: ITodo = {
+                _id: String(Date.now()),
+                title: title,
+                completed: false,
+                important: false,
+            }
+            dispatch(addTodo(currentUserId, title, newTodo))
+            setTitle('')
         }
-        dispatch(addTodo(title, newTodo))
-        setTitle('')
     }
 
     return (
@@ -35,7 +40,6 @@ const TodoForm = () => {
                 onHandler={e => addNewTodo(e)}
                 className='to-do-list__button-form'
             />
-            
         </form>
     );
 };
